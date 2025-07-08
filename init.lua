@@ -696,6 +696,34 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+        pylsp = {
+          settings = {
+            pylsp = {
+              plugins = {
+                autopep8 = {
+                  enabled = false,
+                },
+                pycodestyle = {
+                  enabled = false,
+                  maxLineLength = 100,
+                },
+                pyflakes = {
+                  enabled = false,
+                },
+                mccabe = {
+                  enabled = false,
+                },
+                flake8 = {
+                  enabled = true,
+                  maxLineLength = 100,
+                },
+                pyslp_mypy = {
+                  enabled = true,
+                },
+              },
+            },
+          },
+        },
 
         lua_ls = {
           -- cmd = { ... },
@@ -748,6 +776,8 @@ require('lazy').setup({
         'fortls',
         'pylsp',
         'clangd',
+        'mypy',
+        'isort',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
